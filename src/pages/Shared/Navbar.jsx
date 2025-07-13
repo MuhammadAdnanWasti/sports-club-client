@@ -1,8 +1,20 @@
 import React from 'react'
 import Logo from './Logo'
-import { NavLink } from 'react-router'
+import { Link, NavLink, useNavigate } from 'react-router'
+import useAuth from '../hooks/useAuth'
 
 const Navbar = () => {
+  const {user,signOutUser}=useAuth()
+  const navigate=useNavigate()
+  const handleSignOut=() => { 
+     signOutUser()
+.then(()=>{
+  setTimeout(() => {  navigate('/')}, 100)
+
+}).catch(error=>{
+  // console.log(error)
+})
+  }
   return (
     <div className="navbar bg-primary shadow-sm text-white">
   <div className="navbar-start">
@@ -28,8 +40,29 @@ const Navbar = () => {
         <li><NavLink to='/courts'>Courts</NavLink></li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end mr-12">
+     {user ? 
+   <>
+  <div className="dropdown dropdown-end ">
+           <div className='flex gap-2'>
+             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img alt="User Avatar" src={user.photoURL} />
+              </div>
+            </div>
+            
+           </div>
+            <ul tabIndex={0} className=" mt-3 z-[1] p-2 menu menu-sm shadow dropdown-content bg-base-100 text-black rounded-box ">
+           <li><button className='btn bg-amber-300' onClick={handleSignOut}>Log Out</button></li>
+             <li>Email:{user.email}</li>
+             
+            </ul>
+          </div>
+    
+   </>:<>
+   <Link className="btn bg-amber-300" to='/auth/login'>Login</Link>
+   <Link className="btn bg-amber-300" to='/auth/register'>Register</Link>
+  </>}
   </div>
 </div>
   )
