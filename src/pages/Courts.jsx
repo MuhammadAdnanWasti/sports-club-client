@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import useCourts from './hooks/adminCourts/useCourts';
+import React, { useEffect, useState } from 'react'
 import useAuth from './hooks/useAuth';
 import {  useNavigate } from 'react-router';
 import BookingModal from './DashBoard/BookingModal';
@@ -9,11 +8,53 @@ const Courts = () => {
   const navigate = useNavigate();
   
 
-  const { data: courts, isPending, isError, error } = useCourts();
+
 
   // Booking modal state
   const [selectedCourt, setSelectedCourt] = useState(null);
   const [bookingOpen, setBookingOpen] = useState(false);
+
+ const [courts, setCourts] = useState([]);
+   const [itemsPerPage,setItemsPerPage]=useState(6)
+    const [currentPage, setCurrentPage]=useState(0)
+  const [count,setCount]=useState(0)
+     const NumOfPages=Math.ceil(count/itemsPerPage)
+const pages=[...Array(NumOfPages).keys()]
+    // console.log(pages)
+    useEffect(() => {
+      
+    fetch('http://localhost:3000/courtsCount')
+    .then(res=>res.json())
+    .then(data=>setCount(data.count))
+     
+    }, [])
+
+     useEffect(() => {
+        fetch(`http://localhost:3000/courtsUser?page=${currentPage}&size=${itemsPerPage}`)
+            .then(res => res.json())
+            .then(data => setCourts(data))
+    }, [currentPage,itemsPerPage]);
+
+
+    const handleItems=(e) => { 
+    console.log(e.target.value)
+    const val=parseInt(e.target.value)
+    setItemsPerPage(val)
+    setCurrentPage(0)
+  }
+ const handlePrev=() => { 
+    if (currentPage>0){
+        setCurrentPage(currentPage - 1)
+    }
+  }
+ const handleNext=() => { 
+    if (currentPage< pages.length -1){
+        setCurrentPage(currentPage + 1)
+    }
+  }
+
+
+
   const openBooking = (court) => {
     setSelectedCourt(court);
     setBookingOpen(true);
@@ -34,18 +75,10 @@ const Courts = () => {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold">Courts</h2>
 
-        {/* Loading */}
-        {isPending && <div className="text-center py-20">Loading courts...</div>}
-
-        {/* Error */}
-        {isError && (
-          <div className="alert alert-error mb-6">
-            <span>Failed to load courts: {error?.message}</span>
-          </div>
-        )}
+      
 
         {/* Table */}
-        {!isPending && !isError && (
+      
           <div className="overflow-x-auto">
             <table className="table table-zebra w-full">
               <thead>
@@ -105,7 +138,23 @@ const Courts = () => {
               </tbody>
             </table>
           </div>
-        )}
+      <div className='pagination'>
+                <p>CurrentPage:{currentPage}</p>
+                <button  className='btn btn-primary' onClick={handlePrev}>Previous</button>
+                {
+            pages.map(page=><button 
+                className={currentPage === page ? 'bg-amber-300 btn  '  : 'btn'}
+                onClick={()=>setCurrentPage(page)}
+                key={page}>{page}</button>)
+            }
+            <button className='btn btn-primary' onClick={handleNext}>Next</button>
+            <select value={itemsPerPage} onChange={handleItems}>
+                <option value='6'>6</option>
+                <option value='12'>12</option>
+                <option value='20'>20</option>
+                <option value='30'>30</option>
+            </select>
+            </div>
       </div>
 
       {/* Booking Modal */}
