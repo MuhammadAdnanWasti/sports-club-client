@@ -1,41 +1,62 @@
 import React, { useState } from 'react'
-import useCourts from './hooks/adminCourts/useCourts';
-import useAuth from './hooks/useAuth';
-import {  useNavigate } from 'react-router';
-import BookingModal from './DashBoard/BookingModal';
-
-const Courts = () => {
-  const { user } = useAuth();
-  const navigate = useNavigate();
-  
-
+import useCourts from '../hooks/adminCourts/useCourts';
+import useCreateCourt from '../hooks/adminCourts/useCreateCourt';
+import useUpdateCourt from '../hooks/adminCourts/useUpdateCourt';
+import useDeleteCourt from '../hooks/adminCourts/useDeleteCourt';
+import CourtModal from './CourtModal';
+const ManageCourts = () => {
   const { data: courts, isPending, isError, error } = useCourts();
+  const createCourt = useCreateCourt();
+  const updateCourt = useUpdateCourt();
+  const deleteCourt = useDeleteCourt();
 
-  // Booking modal state
-  const [selectedCourt, setSelectedCourt] = useState(null);
-  const [bookingOpen, setBookingOpen] = useState(false);
-  const openBooking = (court) => {
-    setSelectedCourt(court);
-    setBookingOpen(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [editCourt, setEditCourt] = useState(null);
+
+  const openAdd = () => {
+    setEditCourt(null);
+    setModalOpen(true);
   };
-  const closeBooking = () => setBookingOpen(false);
+  const openEdit = (court) => {
+    setEditCourt(court);
+    setModalOpen(true);
+  };
+  const closeModal = () => setModalOpen(false);
 
-  const handleBookClick = (court) => {
-    if (!user?.email) {
-      // redirect to login, preserve current location
-      navigate('/auth/login' )
-      return;
+  const handleModalSubmit = (payload) => {
+    if (editCourt) {
+      updateCourt.mutate(
+        { id: editCourt._id, payload },
+        { onSuccess: closeModal }
+      );
+    } else {
+      createCourt.mutate(payload, { onSuccess: closeModal });
     }
-    openBooking(court);
+  };
+
+  const handleDelete = (court) => {
+    if (!window.confirm(`Delete ${court.type}?`)) return;
+    deleteCourt.mutate(court._id);
   };
 
   return (
     <section className="px-6 py-12 lg:px-20 bg-base-100 text-base-content">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold">Courts</h2>
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-4xl font-bold">Manage Courts</h2>
+          <button
+            className="btn btn-primary"
+            style={{ backgroundColor: '#76b38f', borderColor: '#76b38f' }}
+            onClick={openAdd}
+          >
+            + Add Court
+          </button>
+        </div>
 
         {/* Loading */}
-        {isPending && <div className="text-center py-20">Loading courts...</div>}
+        {isPending && (
+          <div className="text-center py-20">Loading courts...</div>
+        )}
 
         {/* Error */}
         {isError && (
@@ -54,7 +75,7 @@ const Courts = () => {
                   <th>Type</th>
                   <th>Slots</th>
                   <th>Price</th>
-                  <th />
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -84,13 +105,19 @@ const Courts = () => {
                         </details>
                       </td>
                       <td>৳{c.price}</td>
-                      <td className="text-right">
+                      <td className="space-x-2">
                         <button
-                          className="btn btn-primary btn-sm"
-                          style={{ backgroundColor: '#76b38f', borderColor: '#76b38f' }}
-                          onClick={() => handleBookClick(c)}
+                          className="btn btn-xs"
+                          onClick={() => openEdit(c)}
                         >
-                          Book now
+                          Edit
+                        </button>
+                        <button
+                          className="btn btn-xs btn-error"
+                          onClick={() => handleDelete(c)}
+                          disabled={deleteCourt.isPending}
+                        >
+                          Delete
                         </button>
                       </td>
                     </tr>
@@ -108,10 +135,15 @@ const Courts = () => {
         )}
       </div>
 
-      {/* Booking Modal */}
-      <BookingModal open={bookingOpen} onClose={closeBooking} court={selectedCourt} />
+      {/* Add/Edit Modal */}
+      <CourtModal
+        open={modalOpen}
+        onClose={closeModal}
+        initialData={editCourt}
+        onSubmit={handleModalSubmit}
+      />
     </section>
   );
 };
 
-export default Courts
+export default ManageCourts;

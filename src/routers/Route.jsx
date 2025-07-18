@@ -8,6 +8,13 @@ import Auth from "../layouts/Auth";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
 import NotFound from "../pages/NotFound";
+import MyProfile from "../pages/DashBoard/MyProfile";
+import PendingBookings from "../pages/DashBoard/PendingBookings";
+import PrivateRoute from "./PrivateRoute";
+import DashBoardLayout from "../layouts/DashBoardLayout";
+import ManageCourts from "../pages/DashBoard/ManageCourts";
+import ManageAnnouncements from "../pages/DashBoard/ManageAnnouncements";
+import ManageCoupons from "../pages/DashBoard/ManageCoupons";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +41,31 @@ path:'/auth/register',
 Component: Register
 
 }
+    ]
+  },
+   {
+    path:'dashboard',
+    element:<PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
+    children:[
+      {path:'/dashboard',
+        Component:MyProfile
+      },
+      {path:'myProfile',
+        Component:MyProfile
+      },
+      {path:'pendingBookings',
+        Component:PendingBookings
+      },
+      {path:'manageAnnouncements',
+        Component:ManageAnnouncements
+      },
+      {path:'manageCourts',
+        Component:ManageCourts
+      },
+      {path:'manageCoupons',
+        Component:ManageCoupons
+      },
+     
     ]
   },
   

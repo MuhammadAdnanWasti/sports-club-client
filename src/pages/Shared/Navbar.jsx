@@ -24,7 +24,7 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow">
        <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/courts'>Courts</NavLink></li>
         
@@ -54,6 +54,7 @@ const Navbar = () => {
            </div>
             <ul tabIndex={0} className=" mt-3 z-[1] p-2 menu menu-sm shadow dropdown-content bg-base-100 text-black rounded-box ">
            <li><button className='btn bg-amber-300' onClick={handleSignOut}>Log Out</button></li>
+            <li><NavLink className='btn bg-amber-300' to='/dashboard'>DashBoard</NavLink></li>
              <li>Email:{user.email}</li>
              
             </ul>

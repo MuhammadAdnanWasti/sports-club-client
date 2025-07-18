@@ -2,6 +2,7 @@ import React from 'react'
 import Banner from './Banner'
 import AboutClub from './AboutClub'
 import LocationSection from './LocationSection'
+import Coupon from './Coupon'
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Banner></Banner>
       <AboutClub></AboutClub>
       <LocationSection></LocationSection>
+      <Coupon></Coupon>
     </div>
   )
 }
