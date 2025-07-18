@@ -38,6 +38,7 @@ const DashBoardLayout = () => {
                             <li><NavLink to='/dashboard/manageAnnouncements'>Manage Announcements</NavLink></li>
                             <li><NavLink to='/dashboard/manageCourts'>Manage Courts</NavLink></li>
                             <li><NavLink to='/dashboard/manageCoupons'>Manage Cupons</NavLink></li>
+                            <li><NavLink to='/dashboard/manageBookingApprovals'>Manage Bookings</NavLink></li>
                         </ul>
                     </div>
                 </div>
@@ -55,6 +56,7 @@ const DashBoardLayout = () => {
                     <li><NavLink to='/dashboard/manageAnnouncements'>Manage Announcements</NavLink></li>
                     <li><NavLink to='/dashboard/manageCourts'>Manage Courts</NavLink></li>
                     <li><NavLink to='/dashboard/manageCoupons'>Manage coupons</NavLink></li>
+                     <li><NavLink to='/dashboard/manageBookingApprovals'>Manage Bookings</NavLink></li>
                 </ul>
             </div>
         </div>

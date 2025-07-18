@@ -15,6 +15,7 @@ import DashBoardLayout from "../layouts/DashBoardLayout";
 import ManageCourts from "../pages/DashBoard/ManageCourts";
 import ManageAnnouncements from "../pages/DashBoard/ManageAnnouncements";
 import ManageCoupons from "../pages/DashBoard/ManageCoupons";
+import ManageBookingApprovals from "../pages/DashBoard/ManageBookingApprovals";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,9 @@ Component: Register
       },
       {path:'manageCoupons',
         Component:ManageCoupons
+      },
+      {path:'manageBookingApprovals',
+        Component:ManageBookingApprovals
       },
      
     ]
