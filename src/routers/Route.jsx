@@ -16,6 +16,10 @@ import ManageCourts from "../pages/DashBoard/ManageCourts";
 import ManageAnnouncements from "../pages/DashBoard/ManageAnnouncements";
 import ManageCoupons from "../pages/DashBoard/ManageCoupons";
 import ManageBookingApprovals from "../pages/DashBoard/ManageBookingApprovals";
+import ShowAnnouncement from "../pages/DashBoard/ShowAnnouncement";
+import ApprovedBookingsPage from "../pages/DashBoard/ApprovedBookingsPage";
+import ConfirmedBookingsPage from "../pages/DashBoard/ConfirmedBookingsPage";
+import Payment from "../pages/DashBoard/strip/Payment";
 
 const router = createBrowserRouter([
   {
@@ -69,7 +73,19 @@ Component: Register
       {path:'manageBookingApprovals',
         Component:ManageBookingApprovals
       },
-     
+      {path:'showAnnouncements',
+        Component:ShowAnnouncement
+      },
+      {path:'approvedBookings',
+        Component:ApprovedBookingsPage
+      },
+      {path:'confirmedBookings',
+        Component:ConfirmedBookingsPage
+      },
+      {
+        path: 'payment/:_id',
+        Component:Payment
+      },
     ]
   },
   
