@@ -42,6 +42,7 @@ const DashBoardLayout = () => {
                             <li><NavLink to='/dashboard/showAnnouncements'>Announcements</NavLink></li>
                             <li><NavLink to='/dashboard/approvedBookings'>Approved Bookings</NavLink></li>
                              <li><NavLink to='/dashboard/confirmedBookings'>Confirmed Bookings</NavLink></li>
+                             <li><NavLink to='/dashboard/paymentHistory'>Payment History</NavLink></li>
                         </ul>
                     </div>
                 </div>
@@ -63,6 +64,7 @@ const DashBoardLayout = () => {
                        <li><NavLink to='/dashboard/showAnnouncements'>Announcements</NavLink></li>
                         <li><NavLink to='/dashboard/approvedBookings'>Approved Bookings</NavLink></li>
                         <li><NavLink to='/dashboard/confirmedBookings'>Confirmed Bookings</NavLink></li>
+                         <li><NavLink to='/dashboard/paymentHistory'>Payment History</NavLink></li>
                 </ul>
             </div>
         </div>

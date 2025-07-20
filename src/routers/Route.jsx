@@ -20,6 +20,7 @@ import ShowAnnouncement from "../pages/DashBoard/ShowAnnouncement";
 import ApprovedBookingsPage from "../pages/DashBoard/ApprovedBookingsPage";
 import ConfirmedBookingsPage from "../pages/DashBoard/ConfirmedBookingsPage";
 import Payment from "../pages/DashBoard/strip/Payment";
+import PaymentHistoryPage from "../pages/DashBoard/PaymentHistoryPage";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ Component: Register
       {
         path: 'payment/:_id',
         Component:Payment
+      },
+      {
+        path: 'paymentHistory',
+        Component:PaymentHistoryPage
       },
     ]
   },
