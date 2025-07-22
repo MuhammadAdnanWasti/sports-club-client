@@ -21,6 +21,12 @@ import ApprovedBookingsPage from "../pages/DashBoard/ApprovedBookingsPage";
 import ConfirmedBookingsPage from "../pages/DashBoard/ConfirmedBookingsPage";
 import Payment from "../pages/DashBoard/strip/Payment";
 import PaymentHistoryPage from "../pages/DashBoard/PaymentHistoryPage";
+import ManageMembers from "../pages/DashBoard/ManageMembers";
+import AllUsers from "../pages/DashBoard/AllUsers";
+import AllConfirmedBooking from "../pages/DashBoard/AllConfirmedBooking";
+import MemberRoute from "./MemberRoute";
+import PaymentForm from "../pages/DashBoard/strip/PaymentForm";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -63,33 +69,67 @@ Component: Register
         Component:PendingBookings
       },
       {path:'manageAnnouncements',
-        Component:ManageAnnouncements
+        element:(<AdminRoute> 
+          <ManageAnnouncements></ManageAnnouncements>
+        </AdminRoute>)
       },
       {path:'manageCourts',
-        Component:ManageCourts
+       element:(<AdminRoute> 
+          <ManageCourts></ManageCourts>
+        </AdminRoute>)
       },
       {path:'manageCoupons',
-        Component:ManageCoupons
+       element:(<AdminRoute> 
+          <ManageCoupons></ManageCoupons>
+        </AdminRoute>)
       },
       {path:'manageBookingApprovals',
-        Component:ManageBookingApprovals
+       element:(<AdminRoute> 
+          <ManageBookingApprovals></ManageBookingApprovals>
+        </AdminRoute>)
       },
       {path:'showAnnouncements',
         Component:ShowAnnouncement
       },
       {path:'approvedBookings',
-        Component:ApprovedBookingsPage
+        element:(<MemberRoute>
+          <ApprovedBookingsPage></ApprovedBookingsPage>
+        </MemberRoute>)
       },
       {path:'confirmedBookings',
-        Component:ConfirmedBookingsPage
+        element:(<MemberRoute>
+        <ConfirmedBookingsPage></ConfirmedBookingsPage>
+        </MemberRoute>)
       },
       {
         path: 'payment/:_id',
-        Component:Payment
+        element:(<MemberRoute>
+        <Payment></Payment>
+        </MemberRoute>)
       },
       {
         path: 'paymentHistory',
-        Component:PaymentHistoryPage
+       element:(<MemberRoute>
+          <PaymentHistoryPage></PaymentHistoryPage>
+        </MemberRoute>)
+      },
+      {
+        path: 'manageMembers',
+       element:(<AdminRoute> 
+          <ManageMembers></ManageMembers>
+        </AdminRoute>)
+      },
+      {
+        path: 'allUsers',
+       element:(<AdminRoute> 
+         <AllUsers></AllUsers>
+        </AdminRoute>)
+      },
+      {
+        path: 'allConfirmed',
+       element:(<AdminRoute> 
+          <AllConfirmedBooking></AllConfirmedBooking>
+        </AdminRoute>)
       },
     ]
   },

@@ -1,8 +1,13 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router'
 import Logo from '../pages/Shared/Logo'
+import useRole from '../pages/hooks/role/useRole'
+
 
 const DashBoardLayout = () => {
+    const [role, isRole] = useRole()
+
+    // console.log(role, isRole)
     return (
         <div className="drawer text-white">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -33,16 +38,37 @@ const DashBoardLayout = () => {
                             {/* Navbar menu content here */}
                             <li><NavLink to='/'>Home</NavLink></li>
                             <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
+                            {(role === 'user' || role === 'member') &&
+                                <>
+                                    <li><NavLink to='/dashboard/pendingBookings'>Pending Bookings</NavLink></li>
+                                    <li><NavLink to='/dashboard/showAnnouncements'>Announcements</NavLink></li></>
 
-                            <li><NavLink to='/dashboard/pendingBookings'>Pending Bookings</NavLink></li>
-                            <li><NavLink to='/dashboard/manageAnnouncements'>Manage Announcements</NavLink></li>
-                            <li><NavLink to='/dashboard/manageCourts'>Manage Courts</NavLink></li>
-                            <li><NavLink to='/dashboard/manageCoupons'>Manage Cupons</NavLink></li>
-                            <li><NavLink to='/dashboard/manageBookingApprovals'>Manage Bookings</NavLink></li>
-                            <li><NavLink to='/dashboard/showAnnouncements'>Announcements</NavLink></li>
-                            <li><NavLink to='/dashboard/approvedBookings'>Approved Bookings</NavLink></li>
-                             <li><NavLink to='/dashboard/confirmedBookings'>Confirmed Bookings</NavLink></li>
-                             <li><NavLink to='/dashboard/paymentHistory'>Payment History</NavLink></li>
+                            }
+
+                            {role === 'member' && <>
+
+                                <li><NavLink to='/dashboard/approvedBookings'>Approved Bookings</NavLink></li>
+                                <li><NavLink to='/dashboard/confirmedBookings'>Confirmed Bookings</NavLink></li>
+                                <li><NavLink to='/dashboard/paymentHistory'>Payment History</NavLink></li>
+                            </>
+
+                            }
+                            {
+                                role === 'admin' && <>
+                                    <li><NavLink to='/dashboard/manageAnnouncements'> Announcements</NavLink></li>
+                                    <li><NavLink to='/dashboard/manageCourts'>Manage Courts</NavLink></li>
+                                    <li><NavLink to='/dashboard/manageCoupons'>Manage Cupons</NavLink></li>
+                                     <li><NavLink to='/dashboard/manageBookingApprovals'>Manage Bookings</NavLink></li>
+                                    <li><NavLink to='/dashboard/manageMembers'>Members</NavLink></li>
+                                    <li><NavLink to='/dashboard/allUsers'>Users</NavLink></li>
+                                      <li><NavLink to='/dashboard/allConfirmed'>Confirmed</NavLink></li>
+                                </>
+
+                            }
+
+
+
+
                         </ul>
                     </div>
                 </div>
@@ -53,18 +79,37 @@ const DashBoardLayout = () => {
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu bg-primary min-h-full w-80 p-4">
                     {/* Sidebar content here */}
-                    <li><NavLink to='/'>Home</NavLink></li>
-                    <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
+                     <li><NavLink to='/'>Home</NavLink></li>
+                            <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
+                            {(role === 'user' || role === 'member') &&
+                                <>
+                                    <li><NavLink to='/dashboard/pendingBookings'>Pending Bookings</NavLink></li>
+                                    <li><NavLink to='/dashboard/showAnnouncements'>Announcements</NavLink></li></>
 
-                    <li><NavLink to='/dashboard/pendingBookings'>Pending Bookings</NavLink></li>
-                    <li><NavLink to='/dashboard/manageAnnouncements'>Manage Announcements</NavLink></li>
-                    <li><NavLink to='/dashboard/manageCourts'>Manage Courts</NavLink></li>
-                    <li><NavLink to='/dashboard/manageCoupons'>Manage coupons</NavLink></li>
-                     <li><NavLink to='/dashboard/manageBookingApprovals'>Manage Bookings</NavLink></li>
-                       <li><NavLink to='/dashboard/showAnnouncements'>Announcements</NavLink></li>
-                        <li><NavLink to='/dashboard/approvedBookings'>Approved Bookings</NavLink></li>
-                        <li><NavLink to='/dashboard/confirmedBookings'>Confirmed Bookings</NavLink></li>
-                         <li><NavLink to='/dashboard/paymentHistory'>Payment History</NavLink></li>
+                            }
+
+                            {role === 'member' && <>
+
+                                <li><NavLink to='/dashboard/approvedBookings'>Approved Bookings</NavLink></li>
+                                <li><NavLink to='/dashboard/confirmedBookings'>Confirmed Bookings</NavLink></li>
+                                <li><NavLink to='/dashboard/paymentHistory'>Payment History</NavLink></li>
+                            </>
+
+                            }
+                            {
+                                role === 'admin' && <>
+                                    <li><NavLink to='/dashboard/manageAnnouncements'>Announcements</NavLink></li>
+                                    <li><NavLink to='/dashboard/manageCourts'>Manage Courts</NavLink></li>
+                                    <li><NavLink to='/dashboard/manageCoupons'>Manage Cupons</NavLink></li>
+                                    <li><NavLink to='/dashboard/manageBookingApprovals'>Manage Bookings</NavLink></li>
+                                     <li><NavLink to='/dashboard/manageMembers'>Members</NavLink></li>
+                                    <li><NavLink to='/dashboard/allUsers'>Users</NavLink></li>
+                                    <li><NavLink to='/dashboard/allConfirmed'>Confirmed</NavLink></li>
+
+                                </>
+
+                            }
+
                 </ul>
             </div>
         </div>

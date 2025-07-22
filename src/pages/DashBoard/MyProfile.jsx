@@ -2,11 +2,21 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../hooks/useAuth';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import useRole from '../hooks/role/useRole';
+import useCourts from '../hooks/adminCourts/useCourts';
+import useMembers from '../hooks/adminCourts/useMembers ';
+import useRegularUsers from '../hooks/adminCourts/useRegularUsers';
 
 const MyProfile = () => {
   const { user, loading } = useAuth(); 
+   const { data: courts=[] } = useCourts();
+    const { data: members = []} = useMembers();
+  const {
+    data: users = []
+  } = useRegularUsers();
+  //  console.log(courts)
   const axiosSecure = useAxiosSecure();
-
+const [role, isRole] = useRole()
   // Don't run query until user exists
   const { isPending, isError, error, data: profile } = useQuery({
     queryKey: ['my-profile', user?.email],
@@ -66,6 +76,17 @@ const MyProfile = () => {
                   {new Date(profile.created_at).toLocaleString('en-GB', { timeZone: 'Asia/Dhaka' })}
                 </p>
               )}
+              {  role==='member' && (profile.updated_at && (
+                <p className="text-lg">
+                  <span className="font-medium">Became  member:</span>{' '}
+                  {new Date(profile.updated_at).toLocaleString('en-GB', { timeZone: 'Asia/Dhaka' })}
+                </p>
+              ))}
+              {  role==='admin' && <>
+              <p>Total Courts: {courts.length}</p>
+              <p>Total Users: {users.length}</p>
+              <p>Total members: {members.length}</p>
+              </>}
             </div>
           </div>
         </div>
