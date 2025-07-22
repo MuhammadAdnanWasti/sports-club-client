@@ -44,7 +44,7 @@ const ManageAnnouncements = () => {
     <section className="px-6 py-12 lg:px-20 bg-base-100 text-base-content">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-4xl font-bold">Manage Announcements</h2>
+          <h2 className="text-xl font-bold">Manage Announcements</h2>
           <button className="btn btn-primary" style={{ backgroundColor: brandColor, borderColor: brandColor }} onClick={openAdd}>
             + Add Announcement
           </button>

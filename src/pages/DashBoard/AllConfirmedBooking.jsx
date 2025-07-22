@@ -1,13 +1,12 @@
-import React from 'react'
-import useAuth from '../hooks/useAuth';
+import React, { useState } from 'react'
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 
 const AllConfirmedBooking = () => {
     
   const axiosSecure = useAxiosSecure();
-  
-  const { data: bookings = [], isPending } = useQuery({
+   const [search, setSearch] = useState('');
+  const { data: bookingss = [], isPending } = useQuery({
     queryKey: ['confirmed-bookings'],
     
     queryFn: async () => {
@@ -17,13 +16,27 @@ const AllConfirmedBooking = () => {
   });
 
   
-
+ const bookings = bookingss.filter((u) =>
+    u.court_type.toLowerCase().includes(search.toLowerCase())
+  );
   if (isPending) return <p>Loading confirmed bookings...</p>;
 
   
   return (
    <section className="px-6 py-12 lg:px-20 text-black">
       <h2 className="text-3xl font-bold mb-6">All Confirmed Bookings     </h2>
+      <div className="mb-4">
+          <input
+ type="text"  name='search' 
+
+
+           
+            placeholder="Search by name..."
+            className="input input-bordered w-full text-black"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
       {bookings.length ? (
         <div className="space-y-4">
           {bookings.map(b => (

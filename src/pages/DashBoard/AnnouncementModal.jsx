@@ -46,7 +46,7 @@ const AnnouncementModal = ({ open, onClose, initialData = null, onSubmit }) => {
 
   return (
     <dialog className={`modal ${open ? 'modal-open' : ''}`}>
-      <div className="modal-box max-w-xl">
+      <div className="modal-box max-w-lg">
         <h3 className="font-bold text-xl mb-4" style={{ color: brandColor }}>
           {initialData ? 'Edit Announcement' : 'Add Announcement'}
         </h3>
