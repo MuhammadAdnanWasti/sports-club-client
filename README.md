@@ -10,21 +10,21 @@ React.js, Tailwind Css , Firebase, MongoDB, react-router, Express.js, Stripe, Ax
 # Dependecies for Frontend-
 Axios, TanStack Query, React.js, Tailwind CSS, Firebase, react-router,  Stripe, DaisyUI, Sweet Alert
 
-Guide how to run -
-# 1. Clone the repo
+# Guide how to run -
+ 1. Clone the repo
 git clone https://github.com/your-username/your-frontend-repo.git
 
-# 2. Go into the project folder
+ 2. Go into the project folder
 cd your-frontend-repo
 
-# 3. Install dependencies
+ 3. Install dependencies
 npm install
 
-# 4. Start the dev server
+ 4. Start the dev server
 npm run dev   
 
 
-Features:
+# Features:
 🔐 Role-Based Access Control (RBAC): Separate dashboards for User, Member, and Admin.
 
 🏸 Court/Session Booking: Real-time booking with dynamic price calculation
