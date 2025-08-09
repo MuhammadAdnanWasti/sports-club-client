@@ -1,4 +1,4 @@
-Sports Club Management System Live link: https://sports-club-37e16.web.app/   Admin Email: mama2@mami.com
+Sports Club Management System Live link: https://sports-club-37e16.web.app/   
 
 
 <img src="https://i.ibb.co.com/s98sQW6H/Project-1.png" alt="Banner" style="width:100%;" />
