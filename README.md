@@ -6,9 +6,9 @@ Sports Club Management System Live link: https://sports-club-37e16.web.app/   Ad
 A full-featured MERN stack application designed to streamline operations in a sports club. The system supports multiple user roles, real-time court bookings, secure payments, and administrative tools to manage members, courts, and announcements.
 
 # Used Technologies -
-React.js, Tailwind Css , Firebase, MongoDB, react-router, Express.js, Stripe, Axios, TanStack Query.
+React.js, Tailwind Css , Firebase, MongoDB, react-router, Express.js, Stripe, Axios, TanStack Query, react-leaflet, react-hook-form
 # Dependecies for Frontend-
-Axios, TanStack Query, React.js, Tailwind CSS, Firebase, react-router,  Stripe, DaisyUI, Sweet Alert
+Axios, TanStack Query, React.js, Tailwind CSS, Firebase, react-router,  Stripe, DaisyUI, Sweet Alert, react-leaflet,react-hook-form
 
 # Guide how to run -
  1. Clone the repo
