@@ -37,6 +37,6 @@ npm run dev
 
 🏟️ Court Management: Add/update/delete courts with images, slots, and pricing.
 
-🔔 Smart Notifications: Toast/SweetAlert for actions like CRUD, login, and payments.
+🔔 Smart Notifications: SweetAlert for actions like CRUD, login, and payments.
 
 ⚙️ Advanced Data Handling: TanStack Query + Axios Interceptors for secure and efficient data fetching.
