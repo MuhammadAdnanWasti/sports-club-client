@@ -13,7 +13,9 @@ const DashBoardLayout = () => {
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
-                <div className="navbar bg-primary w-full">
+
+                <div className='bg-primary fixed top-0 z-5000 transition-all duration-300 w-[100vw] '>
+ <div className="navbar  shadow-sm text-white max-w-[1200px] mx-auto ">
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
                             <svg
@@ -33,11 +35,12 @@ const DashBoardLayout = () => {
                     </div>
 
                     <div className="mx-2 flex-1 px-2"><Logo></Logo> </div>
-                    <div className="hidden flex-none lg:block">
+                    <div className="hidden  flex-none lg:block ">
                         <ul className="menu menu-horizontal">
                             {/* Navbar menu content here */}
                             <li><NavLink to='/'>Home</NavLink></li>
                             <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
+                            <li><NavLink to='/dashboard/overview'>Overview</NavLink></li>
                             {(role === 'user' || role === 'member') &&
                                 <>
                                     <li><NavLink to='/dashboard/pendingBookings'>Pending Bookings</NavLink></li>
@@ -72,15 +75,21 @@ const DashBoardLayout = () => {
                         </ul>
                     </div>
                 </div>
+                </div>
+               
+               <div className=' pt-16'>
+                
                 <Outlet></Outlet>
+               </div>
 
             </div>
-            <div className="drawer-side">
+            <div className="drawer-side z-5500">
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu bg-primary min-h-full w-80 p-4">
                     {/* Sidebar content here */}
                      <li><NavLink to='/'>Home</NavLink></li>
                             <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
+                             <li><NavLink to='/dashboard/overview'>Overview</NavLink></li>
                             {(role === 'user' || role === 'member') &&
                                 <>
                                     <li><NavLink to='/dashboard/pendingBookings'>Pending Bookings</NavLink></li>

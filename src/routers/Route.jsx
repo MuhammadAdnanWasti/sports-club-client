@@ -28,6 +28,7 @@ import MemberRoute from "./MemberRoute";
 import PaymentForm from "../pages/DashBoard/strip/PaymentForm";
 import AdminRoute from "./AdminRoute";
 import HelpSupport from "../pages/Help/HelpSupport";
+import Overview from "../pages/DashBoard/Overview";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,9 @@ Component: Register
       },
       {path:'myProfile',
         Component:MyProfile
+      },
+      {path:'overview',
+        Component:Overview
       },
       {path:'pendingBookings',
         Component:PendingBookings

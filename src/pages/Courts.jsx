@@ -18,6 +18,7 @@ const Courts = () => {
    const [itemsPerPage,setItemsPerPage]=useState(6)
     const [currentPage, setCurrentPage]=useState(0)
   const [count,setCount]=useState(0)
+  const [sortOrder, setSortOrder] = useState('asc') 
      const NumOfPages=Math.ceil(count/itemsPerPage)
 const pages=[...Array(NumOfPages).keys()]
     // console.log(pages)
@@ -35,6 +36,11 @@ const pages=[...Array(NumOfPages).keys()]
             .then(data => setCourts(data))
     }, [currentPage,itemsPerPage]);
 
+  const displayedCourts = courts.sort((a, b) => {
+      const dateA = a.price
+      const dateB = b.price
+      return sortOrder === 'asc' ? dateA - dateB : dateB - dateA
+    })
 
     
     const handleItems=(e) => { 
@@ -77,7 +83,17 @@ const pages=[...Array(NumOfPages).keys()]
         <h2 className="text-4xl font-bold">Courts</h2>
 
       
-
+ <div className="my-4 flex items-center justify-center">
+          <label className="font-bold mr-2">Sort by Price:</label>
+          <select
+            className="select select-bordered"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
         {/* Table */}
       
           <div className="overflow-x-auto">
@@ -92,8 +108,8 @@ const pages=[...Array(NumOfPages).keys()]
                 </tr>
               </thead>
               <tbody>
-                {courts?.length ? (
-                  courts.map((c) => (
+                {displayedCourts?.length ? (
+                  displayedCourts.map((c) => (
                     <tr key={c._id}>
                       <td>
                         <div className="avatar">

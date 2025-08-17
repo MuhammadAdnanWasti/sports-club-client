@@ -16,7 +16,7 @@ const Navbar = () => {
 })
   }
   return (
-    <div className='bg-primary fixed top-0 z-5000 transition-all duration-300 w-[100vw] h-auto'>
+    <div className='bg-primary fixed top-0 z-5000 transition-all duration-300 w-[100vw] '>
       <div className="navbar  shadow-sm text-white max-w-[1200px] mx-auto ">
   <div className="navbar-start">
     <div className="dropdown">
