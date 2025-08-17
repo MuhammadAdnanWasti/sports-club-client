@@ -180,12 +180,12 @@ const HelpSupport = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       {/* Header */}
-      <div style={{backgroundColor: '#76b38f'}} className="text-white py-16">
+      <div className="text-black py-16">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center">
-            <HelpCircle className="w-16 h-16 mx-auto mb-4" />
+            
             <h1 className="text-4xl font-bold mb-4">Help & Support Center</h1>
             <p className="text-xl opacity-90">Find answers to your questions and get the help you need</p>
           </div>

@@ -10,7 +10,7 @@ const MainLayout = () => {
                 <Navbar></Navbar>
             </header>
 
-            <main className="flex-grow max-w-[1200px] mx-auto w-full">
+            <main className="flex-grow max-w-[1200px] mx-auto w-full pt-16">
                 <Outlet></Outlet>
             </main>
 

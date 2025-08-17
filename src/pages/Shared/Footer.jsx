@@ -10,8 +10,9 @@ const Footer = () => {
     <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
   </aside>
    <ul className="grid grid-flow-col gap-4">
-  <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink  to='/courts'>Courts</NavLink></li>
+      <li><NavLink to='/' >Home</NavLink></li>
+        <li><NavLink to='/courts' >Courts</NavLink></li>
+        <li><NavLink to='/helpSupport' >Help & Support</NavLink></li>
  </ul>
  <div>
     <p className='font-bold'>Contract Us:</p>

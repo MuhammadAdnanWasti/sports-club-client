@@ -16,7 +16,7 @@ const Navbar = () => {
 })
   }
   return (
-    <div className='bg-primary fixed top-0 z-5000 transition-all duration-300 w-[100vw]'>
+    <div className='bg-primary fixed top-0 z-5000 transition-all duration-300 w-[100vw] h-auto'>
       <div className="navbar  shadow-sm text-white max-w-[1200px] mx-auto ">
   <div className="navbar-start">
     <div className="dropdown">
@@ -26,20 +26,20 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow">
-     <li><NavLink to='/' className={({ isActive }) =>
+          <li><NavLink to='/' className={({ isActive }) =>
           isActive
             ? "text-black font-bold underline" // Active styles
-            : "text-gray-900 "
+            : "font-bold"
         }>Home</NavLink></li>
         <li><NavLink to='/courts' className={({ isActive }) =>
           isActive
             ? "text-black font-bold underline" // Active styles
-            : "text-gray-900 "
+            : "font-bold"
         }>Courts</NavLink></li>
         <li><NavLink to='/helpSupport' className={({ isActive }) =>
           isActive
             ? "text-black font-bold underline" // Active styles
-            : "text-gray-900 "
+            : "font-bold"
         }>Help & Support</NavLink></li>
         
       </ul>
@@ -53,17 +53,17 @@ const Navbar = () => {
        <li><NavLink to='/' className={({ isActive }) =>
           isActive
             ? "text-black font-bold underline" // Active styles
-            : "text-gray-900 "
+            : "font-bold"
         }>Home</NavLink></li>
         <li><NavLink to='/courts' className={({ isActive }) =>
           isActive
             ? "text-black font-bold underline" // Active styles
-            : "text-gray-900 "
+            : "font-bold"
         }>Courts</NavLink></li>
         <li><NavLink to='/helpSupport' className={({ isActive }) =>
           isActive
             ? "text-black font-bold underline" // Active styles
-            : "text-gray-900 "
+            : "font-bold"
         }>Help & Support</NavLink></li>
     </ul>
   </div>
