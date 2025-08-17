@@ -36,6 +36,7 @@ const pages=[...Array(NumOfPages).keys()]
     }, [currentPage,itemsPerPage]);
 
 
+    
     const handleItems=(e) => { 
     // console.log(e.target.value)
     const val=parseInt(e.target.value)
