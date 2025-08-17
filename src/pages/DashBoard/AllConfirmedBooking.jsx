@@ -24,7 +24,7 @@ const AllConfirmedBooking = () => {
   
   return (
    <section className="px-6 py-12 lg:px-20 text-black">
-      <h2 className="text-3xl font-bold mb-6">All Confirmed Bookings     </h2>
+      <h2 className="text-3xl font-bold mb-6 text-primary">All Confirmed Bookings     </h2>
       <div className="mb-4">
           <input
  type="text"  name='search' 
@@ -32,15 +32,15 @@ const AllConfirmedBooking = () => {
 
            
             placeholder="Search by name..."
-            className="input input-bordered w-full text-black"
+            className="input input-bordered w-full text-primary"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
       {bookings.length ? (
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           {bookings.map(b => (
-            <div key={b._id} className="card bg-base-100 shadow p-4">
+            <div key={b._id} className="card bg-primary text-white shadow p-4">
               <h3 className="font-semibold">Court: {b.court_type}</h3>
              
               <p>Total Price: ৳{b.

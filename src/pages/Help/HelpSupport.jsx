@@ -182,7 +182,7 @@ const HelpSupport = () => {
   return (
     <div className="min-h-screen ">
       {/* Header */}
-      <div className="text-black py-16">
+      <div className=" py-16">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center">
             
@@ -210,7 +210,7 @@ const HelpSupport = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* FAQ Section */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold  mb-6">Frequently Asked Questions</h2>
             
             <div className="space-y-4">
               {filteredFAQs.map((category) => (

@@ -197,7 +197,7 @@ const LandingPageSections = () => {
   ];
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-16 ">
       {/* Section 1: Our Partners */}
       <section 
         id="partners"
@@ -208,8 +208,8 @@ const LandingPageSections = () => {
       >
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Trusted Partners</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold  mb-4">Our Trusted Partners</h2>
+            <p className=" max-w-2xl mx-auto">
               We collaborate with leading Bangladeshi companies to provide world-class sports facilities and services
             </p>
           </div>
@@ -223,12 +223,12 @@ const LandingPageSections = () => {
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-center">
+                <div className="text-center text-black">
                   <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
                     {partner.logo}
                   </div>
-                  <h3 className="font-bold text-gray-800 mb-2">{partner.name}</h3>
-                  <p className="text-sm text-gray-600 mb-3">{partner.description}</p>
+                  <h3 className="font-bold  mb-2">{partner.name}</h3>
+                  <p className="text-sm  mb-3">{partner.description}</p>
                   <span 
                     className="inline-block px-3 py-1 text-xs font-medium rounded-full text-white"
                     style={{ backgroundColor: '#76b38f' }}
@@ -261,7 +261,7 @@ const LandingPageSections = () => {
 
           <div className="relative max-w-4xl mx-auto">
             {/* Testimonial Cards */}
-            <div className="bg-white rounded-2xl p-8 shadow-2xl relative overflow-hidden">
+            <div className="bg-white rounded-2xl p-8 shadow-2xl relative overflow-hidden text-black">
               <div className="absolute top-4 left-6">
                 <Quote className="w-8 h-8 text-green-200" />
               </div>
@@ -287,10 +287,10 @@ const LandingPageSections = () => {
                 <div className="flex items-center justify-center gap-4">
                   <div className="text-4xl">{testimonials[currentTestimonial].image}</div>
                   <div className="text-center">
-                    <h4 className="font-bold text-gray-800">
+                    <h4 className="font-bold ">
                       {testimonials[currentTestimonial].name}
                     </h4>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm ">
                       {testimonials[currentTestimonial].role}
                     </p>
                     <p className="text-xs text-gray-500 flex items-center justify-center gap-1 mt-1">
@@ -346,14 +346,14 @@ const LandingPageSections = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4">
               <Globe className="w-8 h-8 text-blue-600" />
-              <h2 className="text-3xl font-bold text-gray-800">Global Connections</h2>
+              <h2 className="text-3xl font-bold ">Global Connections</h2>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className=" max-w-2xl mx-auto">
               Expanding horizons through international partnerships and collaborations
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-black">
             {internationalConnections.map((connection, index) => (
               <div 
                 key={index}
@@ -367,8 +367,8 @@ const LandingPageSections = () => {
                     <div className="text-5xl mb-4 group-hover:animate-bounce">
                       {connection.icon}
                     </div>
-                    <h3 className="font-bold text-gray-800 mb-2">{connection.country}</h3>
-                    <p className="text-sm text-gray-600 mb-4">{connection.partnership}</p>
+                    <h3 className="font-bold  mb-2">{connection.country}</h3>
+                    <p className="text-sm  mb-4">{connection.partnership}</p>
                     <div className="inline-flex items-center gap-2 text-xs text-gray-500">
                       <Calendar className="w-3 h-3" />
                       <span>Since {connection.established}</span>
@@ -400,8 +400,8 @@ const LandingPageSections = () => {
                 <div className={`${stat.color} mb-3 flex justify-center`}>
                   {stat.icon}
                 </div>
-                <div className="text-2xl font-bold text-gray-800 mb-1">{stat.number}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-2xl font-bold  mb-1">{stat.number}</div>
+                <div className="text-sm ">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -514,14 +514,14 @@ const LandingPageSections = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 mb-4">
               <Award className="w-8 h-8 text-yellow-600" />
-              <h2 className="text-3xl font-bold text-gray-800">Awards & Recognition</h2>
+              <h2 className="text-3xl font-bold ">Awards & Recognition</h2>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className=" max-w-2xl mx-auto">
               Recognized excellence in sports facility management and customer service
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-3 gap-8 mb-12 text-black">
             {[
               {
                 year: "2024",
@@ -560,8 +560,8 @@ const LandingPageSections = () => {
                       {award.icon}
                     </div>
                     <div className="text-sm font-medium text-gray-500 mb-2">{award.year}</div>
-                    <h3 className="font-bold text-gray-800 mb-2 leading-tight">{award.title}</h3>
-                    <p className="text-sm text-gray-600">{award.organization}</p>
+                    <h3 className="font-bold  mb-2 leading-tight">{award.title}</h3>
+                    <p className="text-sm ">{award.organization}</p>
                   </div>
 
                   {/* Animated border */}
@@ -573,7 +573,7 @@ const LandingPageSections = () => {
 
           {/* Recognition Timeline */}
           <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-xl font-bold text-center text-gray-800 mb-8">Journey of Excellence</h3>
+            <h3 className="text-xl font-bold text-center  mb-8 text-black">Journey of Excellence</h3>
             
             <div className="relative">
               <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-[#76b38f] to-yellow-500"></div>

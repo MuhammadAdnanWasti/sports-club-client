@@ -25,7 +25,7 @@ import useRegularUsers from '../hooks/adminCourts/useRegularUsers';
 
            
             placeholder="Search by name..."
-            className="input input-bordered w-full text-black"
+            className="input input-bordered w-full text-primary"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

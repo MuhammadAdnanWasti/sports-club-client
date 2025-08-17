@@ -1,23 +1,33 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
-import useAuth from './useAuth'
+import React, { useContext, useEffect } from 'react'
+import { AuthContext } from '../context/AuthContext'
 const axiosSecure=axios.create({
     baseURL:`https://sports-club-management-system-serve.vercel.app`
 })
 const useAxiosSecure = () => {
-  const {user}=useAuth()
- useEffect(() => {
- if (user) {
-    axiosSecure.interceptors.request.use(config=>{
-    config.headers.Authorization=`Bearer ${user.accessToken}`
-    return config;
-  },error=>{
-    return Promise.reject(error)
-  })
- }
- }, [user])
- 
-  return axiosSecure
+  const {user, loading}=useContext(AuthContext)
+useEffect(() => {
+    if (!loading && user?.accessToken) {
+      // Add request interceptor
+      const requestInterceptor = axiosSecure.interceptors.request.use(
+        (config) => {
+          config.headers.Authorization = `Bearer ${user.accessToken}`;
+          return config;
+        }
+      );
+
+      // Add response interceptor
+     
+
+      // Cleanup to prevent multiple interceptors on re-renders
+      return () => {
+        axiosSecure.interceptors.request.eject(requestInterceptor);
+       
+      };
+    }
+  }, [user, loading]);
+
+  return axiosSecure;
 }
 
 export default useAxiosSecure
