@@ -10,10 +10,10 @@ const useValidateCoupon = () => {
   const validate = async (code) => {
     if (!code) return { valid: false, discount: 0, finalTotal: 0};
     const res = await axiosSecure.post('/coupons/validate', { code });
-    console.log({res})
+    // console.log({res})
     return res.data; // { valid, discount, finalTotal, couponId? }
   };
-  console.log({validate})
+  // console.log({validate})
   return validate;
 };
 
@@ -57,12 +57,12 @@ const { isPending, data: parcelInfo = {} } = useQuery({
 //  }
 // }, [couponState])
 
-console.log(totalPriceAfterDiscount)
+// console.log(totalPriceAfterDiscount)
      const handleApplyCoupon = async () => {
     setCouponState((s) => ({ ...s, loading: true, error: null }));
     try {
       const result = await validateCoupon(couponCode.trim());
-      console.log({result})
+      // console.log({result})
       setCouponState({
         valid: result.valid,
         discount: result.amount || 0,
@@ -76,7 +76,7 @@ console.log(totalPriceAfterDiscount)
     }
   };
 
-console.log({couponState, bookingTotal:parcelInfo.total_price})
+// console.log({couponState, bookingTotal:parcelInfo.total_price})
   
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -107,7 +107,7 @@ console.log({couponState, bookingTotal:parcelInfo.total_price})
         }
         else {
             setError('');
-            console.log('payment method', paymentMethod);
+            // console.log('payment method', paymentMethod);
 
             // step-2: create payment intent
             const res = await axiosSecure.post('/create-payment-intent', {
@@ -133,7 +133,7 @@ console.log({couponState, bookingTotal:parcelInfo.total_price})
             } else {
                 setError('');
                 if (result.paymentIntent.status === 'succeeded') {
-                    console.log('Payment succeeded!');
+                    // console.log('Payment succeeded!');
                     const transactionId = result.paymentIntent.id;
                     // step-4 mark parcel paid also create payment history
                     const paymentData = {

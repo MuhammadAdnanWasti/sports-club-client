@@ -23,21 +23,21 @@ const pages=[...Array(NumOfPages).keys()]
     // console.log(pages)
     useEffect(() => {
       
-    fetch('http://localhost:3000/courtsCount')
+    fetch('https://sports-club-management-system-serve.vercel.app/courtsCount')
     .then(res=>res.json())
     .then(data=>setCount(data.count))
      
     }, [])
 
      useEffect(() => {
-        fetch(`http://localhost:3000/courtsUser?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`https://sports-club-management-system-serve.vercel.app/courtsUser?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setCourts(data))
     }, [currentPage,itemsPerPage]);
 
 
     const handleItems=(e) => { 
-    console.log(e.target.value)
+    // console.log(e.target.value)
     const val=parseInt(e.target.value)
     setItemsPerPage(val)
     setCurrentPage(0)

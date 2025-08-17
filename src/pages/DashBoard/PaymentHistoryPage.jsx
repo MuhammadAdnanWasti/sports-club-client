@@ -24,7 +24,7 @@ const usePaymentHistory = (email) => {
 const PaymentHistoryPage = () => {
   const { user } =useAuth()
   const { data: payments = [], isPending, isError, error } = usePaymentHistory(user?.email);
-  console.log(payments)
+  // console.log(payments)
   const [viewMode, setViewMode] = useState('table'); // 'table' or 'card'
 
   if (isPending) return <p className="text-center py-10">Loading payment history...</p>;

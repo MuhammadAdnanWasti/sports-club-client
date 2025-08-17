@@ -83,7 +83,7 @@ const userRes= await axiosInstance.post('/users', userInfo)
         });
          navigate( location?.state || '/' )
             }).catch((error) => {
-              console.log(error)
+              // console.log(error)
             })
    }
   return (

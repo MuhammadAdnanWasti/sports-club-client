@@ -16,7 +16,8 @@ const Navbar = () => {
 })
   }
   return (
-    <div className="navbar bg-primary shadow-sm text-white">
+    <div className='bg-primary fixed top-0 z-5000 transition-all duration-300 w-[100vw]'>
+      <div className="navbar  shadow-sm text-white max-w-[1200px] mx-auto ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,8 +26,21 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow">
-       <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/courts'>Courts</NavLink></li>
+     <li><NavLink to='/' className={({ isActive }) =>
+          isActive
+            ? "text-black font-bold underline" // Active styles
+            : "text-gray-900 "
+        }>Home</NavLink></li>
+        <li><NavLink to='/courts' className={({ isActive }) =>
+          isActive
+            ? "text-black font-bold underline" // Active styles
+            : "text-gray-900 "
+        }>Courts</NavLink></li>
+        <li><NavLink to='/helpSupport' className={({ isActive }) =>
+          isActive
+            ? "text-black font-bold underline" // Active styles
+            : "text-gray-900 "
+        }>Help & Support</NavLink></li>
         
       </ul>
     </div>
@@ -36,8 +50,21 @@ const Navbar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-       <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/courts'>Courts</NavLink></li>
+       <li><NavLink to='/' className={({ isActive }) =>
+          isActive
+            ? "text-black font-bold underline" // Active styles
+            : "text-gray-900 "
+        }>Home</NavLink></li>
+        <li><NavLink to='/courts' className={({ isActive }) =>
+          isActive
+            ? "text-black font-bold underline" // Active styles
+            : "text-gray-900 "
+        }>Courts</NavLink></li>
+        <li><NavLink to='/helpSupport' className={({ isActive }) =>
+          isActive
+            ? "text-black font-bold underline" // Active styles
+            : "text-gray-900 "
+        }>Help & Support</NavLink></li>
     </ul>
   </div>
   <div className="navbar-end mr-12">
@@ -66,6 +93,7 @@ const Navbar = () => {
   </>}
   </div>
 </div>
+    </div>
   )
 }
 

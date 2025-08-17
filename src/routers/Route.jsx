@@ -27,6 +27,7 @@ import AllConfirmedBooking from "../pages/DashBoard/AllConfirmedBooking";
 import MemberRoute from "./MemberRoute";
 import PaymentForm from "../pages/DashBoard/strip/PaymentForm";
 import AdminRoute from "./AdminRoute";
+import HelpSupport from "../pages/Help/HelpSupport";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         {
             path:'courts',
             Component:Courts
+        },
+        {
+            path:'helpSupport',
+            Component:HelpSupport
         }
     ]
   },
